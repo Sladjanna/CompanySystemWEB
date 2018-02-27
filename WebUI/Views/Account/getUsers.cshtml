@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Model.User>
+
+@{
+    ViewBag.Title = "getUsers";
+}
+
+<div class="navbar-header">
+    <ul class="nav navbar-nav">
+        <li>@Html.ActionLink("New User", "newUser", "Account")</li>
+        <li>@Html.ActionLink("All Users", "getUsers", "Account")</li>
+        <li>@Html.ActionLink("New Department", "newDepartment", "Department")</li>
+        <li>@Html.ActionLink("All Departments", "getDepartments", "Department")</li>
+        <li>@Html.ActionLink("Log out", "Logout", "Account")</li>
+    </ul>
+</div>
+<br /><br /><br />
+
+<h2>All Users</h2>
+
+<p>
+    @Html.ActionLink("Create New", "newUser")
+</p>
+
+<table class="table">
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Username</th>
+        <th>Gender</th>
+        <th>Birthday</th>
+        <th>Type</th>
+        <th>Department</th>
+    </tr>
+       
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Birthday)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Department.Name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

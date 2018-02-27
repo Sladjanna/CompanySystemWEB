@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Login</title>
+<link rel="stylesheet" href="../../app/css/bootstrap.css"/>
+<link rel="stylesheet" href="../../app/css/main.css"/>
+</head>
+
+<body>
+<h2>LOG IN</h2>
+
+<div id="login_form">
+	<form action="page_to_go_to" method="get" >
+		<label>Username </label><input type="text" name="username"><br><br>
+		<label>Password </label><input type="text" name="password"><br><br>
+		<input type="submit" value="Submit">	
+	</form>
+
+	</br></br></br>
+</div>	
+
+
+<table>
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr >
+			<td></td>
+			<td>{{ activity.name }}</td>
+			<td>
+				<button class="btn btn-danger btn-xs">Delete</button>
+				<a href="/#/activities/edit/{{ activity.id }}" class="btn btn-warning btn-xs">Edit</a>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<div class="row">
+	<div class="col-md-12 text-center">
+		<span ng-hide="hideSpinner" class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>
+		<div ng-show="showError" class="alert alert-danger" role="alert">Ooops, something went wrong :)</div>
+	</div>
+</div>
+
+<a href="/#/activities/add" class="btn btn-success">Add new activity</a>
+
+	
+	<hr>
+    <footer>
+      <p>&copy; 2017 Sladjana</p>
+    </footer>
+</body>
+</html>

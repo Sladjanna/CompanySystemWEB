@@ -1,0 +1,111 @@
+﻿@model Model.Task
+
+@{
+    ViewBag.Title = "Delete Task";
+}
+
+<ul class="nav navbar-nav">
+    <li>@Html.ActionLink("New Project", "newProject", "Project")</li>
+    <li>@Html.ActionLink("All Project", "getProjects", "Project")</li>
+    <li>@Html.ActionLink("New Task", "newTask", "Task")</li>
+    <li>@Html.ActionLink("All Task", "getTasks", "Task")</li>
+    <li>@Html.ActionLink("Log out", "Logout", "Account")</li>
+</ul>
+<br /><br /><br /><br />
+
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>Task</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Title)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Title)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.StartDate)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.StartDate)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.EndDate)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.EndDate)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.EstimatedWorkingHour)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.EstimatedWorkingHour)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.RemainingWorkingHour)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.RemainingWorkingHour)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.StateOfTask)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.StateOfTask)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Comment)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Comment)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.EmployeeID)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.EmployeeID)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ProjectID)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ProjectID)
+            </dd>
+    
+        </dl>
+    
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+    
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" />
+            </div>
+        }
+    </div>
+

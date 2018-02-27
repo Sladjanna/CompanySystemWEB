@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Model.Task>
+@{
+    ViewBag.Title = "getTasks";
+}
+
+<ul class="nav navbar-nav">
+    <li>@Html.ActionLink("New Project", "newProject", "Project")</li>
+    <li>@Html.ActionLink("All Project", "getProjects", "Project")</li>
+    <li>@Html.ActionLink("New Task", "newTask", "Task")</li>
+    <li>@Html.ActionLink("All Task", "getTasks", "Task")</li>
+    <li>@Html.ActionLink("Log out", "Logout", "Account")</li>
+</ul>
+<br /><br /><br /><br />
+
+<h2>Get Tasks</h2>
+<table class="table">
+    <tr>
+        <th>Title</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Estimated WH</th>
+        <th>Remaining WH</th>
+        <th>Description</th>
+        <th>State</th>
+        <th>Comment</th>
+        <th>Project</th>
+        <th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EstimatedWorkingHour)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RemainingWorkingHour)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StateOfTask)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Project.Title)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+</table>

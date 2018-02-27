@@ -1,0 +1,70 @@
+﻿@model Model.Department
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<div class="navbar-header">
+    <ul class="nav navbar-nav">
+        <li>@Html.ActionLink("New User", "newUser", "Account")</li>
+        <li>@Html.ActionLink("All Users", "getUsers", "Account")</li>
+        <li>@Html.ActionLink("New Department", "newDepartment", "Department")</li>
+        <li>@Html.ActionLink("All Departments", "getDepartments", "Department")</li>
+        <li>@Html.ActionLink("Log out", "Logout", "Account")</li>
+    </ul>
+</div>
+<br /><br /><br />
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.isDepartmentActive, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.isDepartmentActive)
+                    @Html.ValidationMessageFor(model => model.isDepartmentActive, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ComapanyID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("ComapanyID", new SelectList(ViewBag.comList, "Id", "Name"), new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ComapanyID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
